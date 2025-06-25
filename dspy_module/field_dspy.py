@@ -1,5 +1,5 @@
 from dspy import dspy
-from signatures.Doc_Field_Signature import Doc_Field_Signature
+from signatures.Doc_Signature import Doc_Signature
 
 
 lm=dspy.LM(
@@ -14,15 +14,15 @@ lm=dspy.LM(
 
 dspy.configure(lm=lm)
 
-class dspy_doc:
+class field_doc:
     """
     A class to handle document processing using dspy.
     """
 
     def __init__(self):
         super().__init__()
-        self.classifier= dspy.Predict(signature=Doc_Field_Signature)
+        self.classifier= dspy.Predict(signature=Doc_Signature)
 
     def forward(self,text):
-        result=self.classifier(input_text=text)
+        result=self.classifier(inout_text=text)
         return result

@@ -8,6 +8,8 @@ class Doc_Signature(dspy.Signature):
     input_text: str =InputField()
     
     output: str= OutputField(
-        description="The processed output of the document."
+        description="Generate a summary of the document, focusing on the main themes, characters, and events."
     )
+
+
 
