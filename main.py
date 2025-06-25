@@ -18,10 +18,10 @@ def extract_text_from_pdf(file):
     try:
         with pymupdf.open(file) as doc:
             for page in doc:
-                doc_text.append(page.get_text())
+                doc_text.append(page.get_textpage())
         return doc_text
     except Exception as e:
-        print(f "Error extracting text from PDF: {e}")
+        print(f"Error extracting text from PDF: {e}")
         return None
 
 
