@@ -14,7 +14,7 @@ lm=dspy.LM(
 
 dspy.configure(lm=lm)
 
-class dspy_doc:
+class dspy_doc(dspy.Module):
     """
     A class to handle document processing using dspy.
     """
