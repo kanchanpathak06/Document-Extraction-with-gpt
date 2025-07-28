@@ -1,6 +1,9 @@
+
 import os
 import sys
-import pymupdf
+import fitz
+
+import os
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
@@ -10,16 +13,15 @@ sys.path.append(parent_dir)
 from dspy_module.doc_dspy import dspy_doc
 from dspy_module.field_dspy import field_doc
 
-
 def extract_text_from_pdf(file,model):
     """
     Extract text from a PDF file.
     """
     doc_text=[]
     try:
-        with pymupdf.open(file) as doc:
+        with fitz.open(file) as doc:
             for page in doc:
-                doc_text.append(page.get_textpage())
+                doc_text.append(page.get_text())
                 response = model(doc_text)
         return response
     except Exception as e:
@@ -33,6 +35,3 @@ Field_Identifier= field_doc()
 
 ds="dataset/The_Metamorphosis_Franz_Kafka.pdf"
 data= extract_text_from_pdf(ds,Doc_Identifier)
-
-
-
