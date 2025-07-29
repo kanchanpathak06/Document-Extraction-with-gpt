@@ -1,4 +1,4 @@
-# Document-Extraction-with-gpt
+# Document-Extraction-with-Dspy
 
 ## Overview
 
